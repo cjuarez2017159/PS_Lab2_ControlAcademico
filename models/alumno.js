@@ -16,8 +16,7 @@ const AlumnoSchema = Schema({
     },
     role:{
         type: String,
-        require: true,
-        enum: ["STUDENT_ROLE"]
+        default: ["STUDENT_ROLE"]
     },
     grado:{
         type: String,
@@ -35,7 +34,7 @@ const AlumnoSchema = Schema({
 
 AlumnoSchema.methods.toJSON = function(){
     const{ __v, password, _id, ...alumno} = this.toObject();
-    usuario.aid = _id;
+    alumno.aid = _id;
     return alumno;
 };
 

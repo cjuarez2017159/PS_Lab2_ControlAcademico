@@ -4,27 +4,27 @@ const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar-campos.js');
 
 const {
-    alumnosPost,
-    alumnosGet,
-    getAlumnoById,
-    putAlumnos,
-    alumnosDelete
-} = require('../controllers/alumno.controller.js');
+    maestrosPost,
+    maestrosGet,
+    getMaestroById,
+    putMaestros,
+    maestrosDelete
+} = require('../controllers/maestro.controller.js');
 
 const { existenteEmail, esRoleValido, existenteId } = require('../helpers/db-validators.js');
 const { validarJWT } = require('../middlewares/validar-jwt.js');
 
 const router = Router();
 
-router.get("/", alumnosGet);
+router.get("/", maestrosGet);
 
-router.get(
+router.gets(
     "/:id",
     [
         check('id', 'No es un id valido').isMongoId(),
         check('id').custom(existenteId),
         validarCampos
-    ], getAlumnoById 
+    ], getMaestroById
 );
 
 router.put(
@@ -34,19 +34,18 @@ router.put(
         check('id').custom(existenteId),
         check('role').custom(esRoleValido),
         validarCampos
-    ], putAlumnos
+    ], putMaestros
 );
 
-router.post(
+route.post(
     "/",
     [
         check("nombre", "El nombre no puede estar vacio").not().isEmpty(),
-        check("password", "El password debe de ser mayor a 6 caracteres").isLength({ min: 6 }),
+        check("password", "El password debe de ser mayor a 6 caracteres").isLength({ min: 6}),
         check("correo", "Este no es un correo valido").isEmail(),
-        check("grado", "El grado no puede estar vacio").not().isEmpty(),
         check("role").custom(esRoleValido),
-        validarCampos,
-    ], alumnosPost
+        validarCampos
+    ], maestrosPost
 );
 
 router.delete(
@@ -56,7 +55,7 @@ router.delete(
         check('id', 'No es un id valido').isMongoId(),
         check('id').custom(existenteId),
         validarCampos
-    ], alumnosDelete
+    ], maestrosDelete
 );
 
 module.exports = router;
