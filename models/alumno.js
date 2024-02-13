@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const UsuarioSchema = Schema({
+const AlumnoSchema = Schema({
     nombre:{
         type: String,
         required: [true, 'El nombre es obligatorio']
@@ -14,21 +14,22 @@ const UsuarioSchema = Schema({
         type: String,
         required: [true, 'La contraseña es obligatoria']
     },
-    img:{
-        type: String
-    },
     role:{
         type: String,
         require: true,
         enum: ["STUDENT_ROLE"]
     },
+    grado:{
+        type: String,
+        require: true
+    },
+    cursos:{
+        type: [String],
+        dafault: []
+    },
     estado:{
         type: Boolean,
         default: true
-    },
-    google:{
-        type: Boolean,
-        dafault: false
     }
 });
 

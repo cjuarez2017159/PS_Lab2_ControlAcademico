@@ -1,72 +1,72 @@
 const bcryptsjs = require('bcryptjs');
-const Usuario = require('../models/alumno');
+const Alumno = require('../models/alumno');
 const { response , request } = require('express');
 
 const alumnosGet = async (req, res = response) => {
     const { limite, desde } = req.query;
     const query = { estado: true };
 
-    const [total, usuarios] = await Promise.all([
-        Usuario.contDocuments(query),
-        Usuario.find(query)
+    const [total, alumnos] = await Promise.all([
+        Alumno.contDocuments(query),
+        Alumno.find(query)
             .skip(Number(desde))
             .limit(Number(limite))
     ]);
 
     res.status(200).json({
         total,
-        usuarios
+        alumnos
     });
 }
 
 const getAlumnoById = async (req, res) => {
     const { id } = req.params;
-    const usuario = await Usuario.findOne({ _id: id });
+    const alumno = await Alumno.findOne({ _id: id });
 
     res.status(200).json({
-        usuario
+        alumno
     });
 }
 
 const putAlumnos = async (req, res = response) => {
     const { id } = req.params;
-    const { _id, password, google, correo, ...resto } = req.body;
+    const { _id, password, grado, correo, ...resto } = req.body;
 
     if (password) {
         const salt = bcryptsjs.genSaltSync();
         resto.password = bcryptsjs.hashSync(password, salt);
     }
 
-    const usuario = await Usuario.findByIdAndUpdate(id, resto);
+    const alumno = await Alumno.findByIdAndUpdate(id, resto);
 
     res.status(200).json({
-        msg: 'Usuario Actualizado Exitosamente',
-        usuario,
+        msg: 'Alumno Actualizado Exitosamente',
+        alumno,
     });
 }
 
 const alumnosDelete = async (req, res) => {
     const {id} = req.params;
-    const usuario = await Usuario.findByIdAndUpdate(id, {estado: false});
-    const usuarioAutenticado = req.usuario;
+    const alumno = await Alumno.findByIdAndUpdate(id, {estado: false});
+    const alumnoAutenticado = req.alumno;
 
     res.status(200).json({
-        msg: 'Usuario a Eliminar',
-        usuario,
-        usuarioAutenticado
+        msg: 'Alumno a Eliminar',
+        alumno,
+        alumnoAutenticado
     });
 }
 
 const alumnosPost = async (req, res) => {
     const { nombre, correo, password, role } = req.body;
-    const usuario = new Usuario({ nombre , correo, password, role });
+    const alumno = new Alumno({ nombre , correo, password, role });
 
     const salt = bcryptsjs.genSaltSync();
-    usuario.password = bcryptsjs.hashSync(password, salt);
+    alumno.password = bcryptsjs.hashSync(password, salt);
 
-    await usuario.save();
+    await alumno.save();
     res.status(200).json({
-        usuario
+        alumno
     });
 }
 
