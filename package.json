@@ -2,7 +2,7 @@
   "name": "ps_lab2_controlacademico",
   "version": "1.0.0",
   "description": "Repositorio de Laboratorio 2 de PS acerca de Control Academico",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "script": "node index.js"
