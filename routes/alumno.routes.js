@@ -44,6 +44,7 @@ router.post(
         check("password", "El password debe de ser mayor a 6 caracteres").isLength({ min: 6 }),
         check("correo", "Este no es un correo valido").isEmail(),
         check("grado", "El grado no puede estar vacio").not().isEmpty(),
+        check("correo").custom(existenteEmail),
         check("role").custom(esRoleValido),
         validarCampos,
     ], alumnosPost

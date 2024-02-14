@@ -11,7 +11,7 @@ class Server{
         this.maestroPath = '/api/maestros'
         this.loginPath = '/api/auth'
         this.conectarDB();
-        this.middlewares();
+        thisdlewares();
         this.routes();
     }
 
@@ -19,7 +19,7 @@ class Server{
         await dbConnection();
     }
 
-    middlewares(){
+dlewares(){
         this.app.use(express.static('public'));
         this.app.use(cors());
         this.app.use(express.json());

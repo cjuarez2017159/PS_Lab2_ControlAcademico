@@ -16,11 +16,11 @@ const AlumnoSchema = Schema({
     },
     role:{
         type: String,
-        default: ["STUDENT_ROLE"]
+        default: "STUDENT_ROLE"
     },
     grado:{
         type: String,
-        require: true
+        require: [true, "El grado es obligatorio"]
     },
     cursos:{
         type: [String],
@@ -34,7 +34,7 @@ const AlumnoSchema = Schema({
 
 AlumnoSchema.methods.toJSON = function(){
     const{ __v, password, _id, ...alumno} = this.toObject();
-    alumno.aid = _id;
+    alumno.uid = _id;
     return alumno;
 };
 

@@ -18,7 +18,7 @@ const router = Router();
 
 router.get("/", maestrosGet);
 
-router.gets(
+router.get(
     "/:id",
     [
         check('id', 'No es un id valido').isMongoId(),
@@ -43,6 +43,7 @@ route.post(
         check("nombre", "El nombre no puede estar vacio").not().isEmpty(),
         check("password", "El password debe de ser mayor a 6 caracteres").isLength({ min: 6}),
         check("correo", "Este no es un correo valido").isEmail(),
+        check("correo").custom(existenteEmail),
         check("role").custom(esRoleValido),
         validarCampos
     ], maestrosPost

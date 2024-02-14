@@ -7,7 +7,7 @@ const alumnosGet = async (req, res = response) => {
     const query = { estado: true };
 
     const [total, alumnos] = await Promise.all([
-        Alumno.contDocuments(query),
+        Alumno.countDocuments(query),
         Alumno.find(query)
             .skip(Number(desde))
             .limit(Number(limite))
@@ -30,7 +30,7 @@ const getAlumnoById = async (req, res) => {
 
 const putAlumnos = async (req, res = response) => {
     const { id } = req.params;
-    const { _id, password, grado, correo, ...resto } = req.body;
+    const { _id, password, correo, ...resto } = req.body;
 
     if (password) {
         const salt = bcryptsjs.genSaltSync();
@@ -59,7 +59,7 @@ const alumnosDelete = async (req, res) => {
 
 const alumnosPost = async (req, res) => {
     const { nombre, correo, password, grado } = req.body;
-    const alumno = new Alumno({ nombre , correo, password, role });
+    const alumno = new Alumno({ nombre , correo, password, grado });
 
     const salt = bcryptsjs.genSaltSync();
     alumno.password = bcryptsjs.hashSync(password, salt);

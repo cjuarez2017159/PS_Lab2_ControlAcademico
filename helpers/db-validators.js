@@ -1,5 +1,6 @@
 const Role = require('../models/role');
-const Usuario = require('../models/usuario');
+const Alumno = require('../models/alumno');
+const Maestro = require('../models/maestro');
 
 const esRoleValido = async (role = '') => {
     const existeRol = await Role.findOne({role});
@@ -9,16 +10,24 @@ const esRoleValido = async (role = '') => {
 }
 
 const existenteEmail = async (correo = '') => {
-    const existeEmail = await Usuario.findOne({correo});
-    if(!existeEmail){
-        throw new Error(`El correo ${ correo } y esta registrado en la DB`);
+    const existeEmailA = await Alumno.findOne({correo});
+    const existeEmailM = await Maestro.findOne({correo});
+    if(!existeEmailA){
+        throw new Error(`El correo ${ correo } ya esta registrado en la DB`);
+    }
+    if(!existeEmailM){
+        throw new Error(`El correo ${ correo } ya esta registrado en la DB`);
     }
 }
 
 const existenteId = async (id = '') => {
-    const existeId = await Usuario.findOne({id});
-    if(existeId){
-        throw new Error(`El usuario con el id ${ id } no existe`)
+    const existeIdA = await Alumno.findOne({id});
+    const existeIdM = await Maestro.findOne({id});
+    if(existeIdA){
+        throw new Error(`El alumno con el id ${ id } no existe`);
+    }
+    if(existeIdM){
+        throw new Error(`El maestro con el id ${ id } no existe`);
     }
 }
 

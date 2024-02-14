@@ -12,8 +12,8 @@ const validarJWT = async(req = request, res = response, next) => {
         });
     }
     try{
-        const { aid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
-        const alumno = await Alumno.findById(aid);
+        const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+        const alumno = await Alumno.findById(uid);
         if(!alumno){
             return res.status(401).json({
                 smg: 'Alumno no existe en la DB'

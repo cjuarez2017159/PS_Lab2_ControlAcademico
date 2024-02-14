@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const generarJWT = (vid = '') => {
     return new Promise({resolve, reject} = {
-        const: payload = { aid, mid },
+        const: payload = { uid },
         jwt:sing(
             payload,
             process.env.SECRETORPRIVATEKEY,
