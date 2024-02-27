@@ -9,9 +9,11 @@ class Server{
         this.port = process.env.PORT;
         this.alumnoPath = '/api/alumnos'
         this.maestroPath = '/api/maestros'
+        this.cursoPath = '/api/cursos'
         this.loginPath = '/api/auth'
+        this.cursosAlumnoPath = '/api/misCursos'
         this.conectarDB();
-        thisdlewares();
+        this.middlewares();
         this.routes();
     }
 
@@ -19,7 +21,7 @@ class Server{
         await dbConnection();
     }
 
-dlewares(){
+    middlewares(){
         this.app.use(express.static('public'));
         this.app.use(cors());
         this.app.use(express.json());
@@ -28,7 +30,7 @@ dlewares(){
     routes(){
         this.app.use(this.alumnoPath, require('../routes/alumno.routes'));
         this.app.use(this.maestroPath, require('../routes/maestro.routes'));
-        this.app.use(this.loginPath, require('../routes/auth.routes'));
+        this.app.use(this.cursoPath, require('../routes/curso.routes'));
     }
 
     listen(){

@@ -1,0 +1,138 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "cursosColeccion",
+    "dateExported": "2024-02-19T02:45:40.916Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "29db337c-8372-44cf-8452-cbf687f55bca",
+            "colId": "1d59166b-b73e-4fb7-abf8-3f430a8e303b",
+            "containerId": "",
+            "name": "cursosPostPorProfesor",
+            "url": "http://localhost:3000/api/cursos/administrar",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-18T10:11:10.572Z",
+            "modified": "2024-02-19T01:34:04.384Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQyNzliOTIwOTIzMGIzYjdhZjcxMzIiLCJpYXQiOjE3MDgzMDYyNDgsImV4cCI6MTcwODMwOTg0OH0.km9BLxeil9bg1tyeVQsdSZoCUwphR0LOYkZCtjMaRHs"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombreCurso\": \"Taller\",\n  \"descripcio\": \"ahhhhhhh\",\n  \"bimestres\": 3\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e0c9be25-0f06-4844-b0af-d247738a60f8",
+            "colId": "1d59166b-b73e-4fb7-abf8-3f430a8e303b",
+            "containerId": "",
+            "name": "cursosGetPorProfesor",
+            "url": "http://localhost:3000/api/cursos/administrar",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-18T10:11:25.377Z",
+            "modified": "2024-02-19T01:46:53.680Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQyNzliZTIwOTIzMGIzYjdhZjcxMzUiLCJpYXQiOjE3MDgzMDcxODksImV4cCI6MTcwODMxMDc4OX0._vz6B7NPQcUpUraBEdFp3hG0sM0hW77I_GsoArkZtLg"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "626523a9-e5e0-4d97-b2bf-04aa083ac68d",
+            "colId": "1d59166b-b73e-4fb7-abf8-3f430a8e303b",
+            "containerId": "",
+            "name": "cursosDeletePorProfesor",
+            "url": "http://localhost:3000/api/cursos/administrar/65d27cd322660588ae328c15",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-02-18T22:31:29.728Z",
+            "modified": "2024-02-19T01:49:53.689Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQyNzliZTIwOTIzMGIzYjdhZjcxMzUiLCJpYXQiOjE3MDgzMDcxODksImV4cCI6MTcwODMxMDc4OX0._vz6B7NPQcUpUraBEdFp3hG0sM0hW77I_GsoArkZtLg"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "75c1878c-e168-496d-8252-dac9411d4072",
+            "colId": "1d59166b-b73e-4fb7-abf8-3f430a8e303b",
+            "containerId": "",
+            "name": "cursosPutPorProfesor",
+            "url": "http://localhost:3000/api/cursos/administrar/65d2b00c9127ee363c0b7feb",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-02-18T23:04:13.040Z",
+            "modified": "2024-02-19T01:37:57.380Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQyNzlhNjIwOTIzMGIzYjdhZjcxMjkiLCJpYXQiOjE3MDgzMDY2MDAsImV4cCI6MTcwODMxMDIwMH0.w600YJRk5W3X7GAMoiAHrL6kw9Knz8Pa-9RTSrCpcxk"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"descripcion\": \"No vas a dormir en este bimestre\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "716a82e5-f118-40f2-ba5f-41d35b8ef635",
+            "colId": "1d59166b-b73e-4fb7-abf8-3f430a8e303b",
+            "containerId": "",
+            "name": "cursosGetPorAlumno",
+            "url": "http://localhost:3000/api/cursos/misCursos",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-02-18T23:26:05.207Z",
+            "modified": "2024-02-19T01:54:52.547Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQyNzk3YjIwOTIzMGIzYjdhZjcxMjEiLCJpYXQiOjE3MDgzMDc2NTksImV4cCI6MTcwODMxMTI1OX0._YWBd6dEuSlFwMune9fhnDWZbQPcqJDlc1uZz7nO72s"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6423fdd7-2b46-4b9a-9857-53d66798f516",
+            "colId": "1d59166b-b73e-4fb7-abf8-3f430a8e303b",
+            "containerId": "",
+            "name": "asignacionCursoAlumno",
+            "url": "http://localhost:3000/api/cursos/misCursos",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-02-18T23:26:07.027Z",
+            "modified": "2024-02-19T02:13:29.220Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQyNzk3YjIwOTIzMGIzYjdhZjcxMjEiLCJpYXQiOjE3MDgzMDc2NTksImV4cCI6MTcwODMxMTI1OX0._YWBd6dEuSlFwMune9fhnDWZbQPcqJDlc1uZz7nO72s"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cursoId\": \"65d2af8e9127ee363c0b7fe4\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

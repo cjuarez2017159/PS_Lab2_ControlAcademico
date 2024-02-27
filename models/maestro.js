@@ -3,23 +3,20 @@ const { Schema, model } = require('mongoose');
 const MaestroSchema = Schema({
     nombre:{
         type: String,
-        required: [true, 'El nombre es obligatorio']
+        require: [true, 'El nombre es obligatorio']
     },
     correo:{
         type: String,
-        required: [true, 'El correo es obligatorio']
+        require: [true, 'El correo es obligatorio'],
+        unique: true
     },
     password:{
         type: String,
-        required: [true, 'La contraseña es obligatorioa']
+        require: [true, 'La contraseña es obligatorioa']
     },
     role:{
         type: String,
         default: "TEACHER_ROLE"
-    },
-    cursos:{
-        type: [String],
-        default: []
     },
     estado:{
         type: Boolean,

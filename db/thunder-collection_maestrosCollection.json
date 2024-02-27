@@ -1,0 +1,94 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "maestrosCollection",
+    "dateExported": "2024-02-16T18:00:14.658Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "1aaf512e-075a-482d-a238-474a0dc2e659",
+            "colId": "0cdb8056-51b1-4fd4-b108-4999b883785b",
+            "containerId": "",
+            "name": "post maestros",
+            "url": "http://localhost:3000/api/maestros",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-14T21:32:39.825Z",
+            "modified": "2024-02-14T23:22:02.311Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Braulio\",\n  \"correo\": \"br@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "de999188-ca16-4f22-8ed0-c768b81b7201",
+            "colId": "0cdb8056-51b1-4fd4-b108-4999b883785b",
+            "containerId": "",
+            "name": "get maestros",
+            "url": "http://localhost:3000/api/maestros",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-14T22:21:26.104Z",
+            "modified": "2024-02-14T22:21:31.686Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "cd955a17-8904-4dc9-95aa-1ae4734334d2",
+            "colId": "0cdb8056-51b1-4fd4-b108-4999b883785b",
+            "containerId": "",
+            "name": "get MaestroById",
+            "url": "http://localhost:3000/api/maestros/65cd4340cd6750437a4de722",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-14T22:42:02.227Z",
+            "modified": "2024-02-14T22:49:10.125Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a4303325-f4cf-4dfe-ac67-2e7153286071",
+            "colId": "0cdb8056-51b1-4fd4-b108-4999b883785b",
+            "containerId": "",
+            "name": "put Maestro",
+            "url": "http://localhost:3000/api/maestros/65cd4340cd6750437a4de722",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-02-14T22:49:35.858Z",
+            "modified": "2024-02-14T22:55:36.560Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Miguelon\",\n  \"cursos\": [\"Mate\", \"Fisica\"]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4ded12c9-6da3-4e02-8f0f-fdb862bf2c45",
+            "colId": "0cdb8056-51b1-4fd4-b108-4999b883785b",
+            "containerId": "",
+            "name": "delete maestro",
+            "url": "http://localhost:3000/api/maestros/65cd4340cd6750437a4de722",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2024-02-14T22:55:55.272Z",
+            "modified": "2024-02-14T22:56:23.350Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

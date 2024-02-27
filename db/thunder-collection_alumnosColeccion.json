@@ -1,0 +1,99 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "alumnosColeccion",
+    "dateExported": "2024-02-19T02:45:03.889Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "fef967c5-d4a8-42d2-9f80-f0aba2fbba3f",
+            "colId": "a2ebeeae-be61-4c06-a7cb-6ff4f0b9c084",
+            "containerId": "",
+            "name": "alumnoRegistro",
+            "url": "http://localhost:3000/api/alumnos/registrarse",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-14T05:28:09.786Z",
+            "modified": "2024-02-19T02:28:41.012Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Alumno6\",\n  \"correo\": \"alumno6@kinal.edu.gt\",\n  \"password\": \"123456\",\n  \"grado\": \"6to.\"\n}\n\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8d195271-f3ac-4074-b1ee-b13d3e58726d",
+            "colId": "a2ebeeae-be61-4c06-a7cb-6ff4f0b9c084",
+            "containerId": "",
+            "name": "alumnoLista",
+            "url": "http://localhost:3000/api/alumnos/",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-14T05:28:09.787Z",
+            "modified": "2024-02-14T05:28:09.787Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c994f0b6-52c0-4f1b-b2c8-6548ce6c63bc",
+            "colId": "a2ebeeae-be61-4c06-a7cb-6ff4f0b9c084",
+            "containerId": "",
+            "name": "alumnoBuscar",
+            "url": "http://localhost:3000/api/alumnos/65cc5bdbaf8c842a89d22e27",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-02-14T06:14:43.727Z",
+            "modified": "2024-02-14T06:21:37.093Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8865e13e-0c1b-44e4-95f7-064c56c55149",
+            "colId": "a2ebeeae-be61-4c06-a7cb-6ff4f0b9c084",
+            "containerId": "",
+            "name": "alumnoDesactivarPerfil",
+            "url": "http://localhost:3000/api/alumnos/perfil",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-02-14T06:17:50.611Z",
+            "modified": "2024-02-19T02:29:59.403Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQyNzk3YjIwOTIzMGIzYjdhZjcxMjEiLCJpYXQiOjE3MDgzMDk3NjUsImV4cCI6MTcwODMxMzM2NX0.z30OgbeXsEFUEKyX2BQfCLi2tZgpI8UWfrJ6SILefg4"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4437b231-cd93-4982-bdbd-f17b1bf1b284",
+            "colId": "a2ebeeae-be61-4c06-a7cb-6ff4f0b9c084",
+            "containerId": "",
+            "name": "alumnoActualizarPerfil",
+            "url": "http://localhost:3000/api/alumnos/perfil",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-02-14T06:20:52.493Z",
+            "modified": "2024-02-19T02:30:49.708Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQyNzk3YjIwOTIzMGIzYjdhZjcxMjEiLCJpYXQiOjE3MDgzMDk3NjUsImV4cCI6MTcwODMxMzM2NX0.z30OgbeXsEFUEKyX2BQfCLi2tZgpI8UWfrJ6SILefg4"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Rodrigo\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

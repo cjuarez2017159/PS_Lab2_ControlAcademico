@@ -1,6 +1,6 @@
 const bcryptsjs = require('bcryptjs');
 const Alumno = require('../models/alumno');
-const { response , request } = require('express');
+const { response } = require('express');
 
 const alumnosGet = async (req, res = response) => {
     const { limite, desde } = req.query;
@@ -29,7 +29,7 @@ const getAlumnoById = async (req, res) => {
 }
 
 const putAlumnos = async (req, res = response) => {
-    const { id } = req.params;
+    const { id } = req.usuario;
     const { _id, password, correo, ...resto } = req.body;
 
     if (password) {
@@ -48,7 +48,7 @@ const putAlumnos = async (req, res = response) => {
 const alumnosDelete = async (req, res) => {
     const {id} = req.params;
     const alumno = await Alumno.findByIdAndUpdate(id, {estado: false});
-    const alumnoAutenticado = req.alumno;
+    const alumnoAutenticado = req.usuario;
 
     res.status(200).json({
         msg: 'Alumno a Eliminar',

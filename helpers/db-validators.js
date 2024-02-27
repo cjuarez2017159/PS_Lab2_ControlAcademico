@@ -1,38 +1,37 @@
-const Role = require('../models/role');
 const Alumno = require('../models/alumno');
 const Maestro = require('../models/maestro');
 
-const esRoleValido = async (role = '') => {
-    const existeRol = await Role.findOne({role});
-    if(!existeRol){
-        throw new Error (`El rol ${ role } no existe en la DB`);
+const existenteEmailAlumno = async (correo = '') => {
+    const existeEmail = await Alumno.findOne({correo});
+    if(existeEmail){
+        throw new Error(`El correo ${ correo } ya esta registrado`);
     }
 }
 
-const existenteEmail = async (correo = '') => {
-    const existeEmailA = await Alumno.findOne({correo});
-    const existeEmailM = await Maestro.findOne({correo});
-    if(!existeEmailA){
-        throw new Error(`El correo ${ correo } ya esta registrado en la DB`);
-    }
-    if(!existeEmailM){
-        throw new Error(`El correo ${ correo } ya esta registrado en la DB`);
+const existenteEmailMaestro = async (correo = '') => {
+    const existeEmail = await Maestro.findOne({correo});
+    if(existeEmail){
+        throw new Error(`el correo ${ correo } ya esta registrado`);
     }
 }
 
-const existenteId = async (id = '') => {
-    const existeIdA = await Alumno.findOne({id});
-    const existeIdM = await Maestro.findOne({id});
-    if(existeIdA){
-        throw new Error(`El alumno con el id ${ id } no existe`);
+const existeAlumnoById = async (id = '') => {
+    const existeUsuario = await Alumno.findOne({id});
+    if(existeUsuario){
+        throw new Error(`El alumno con el ${ id } no existe`);
     }
-    if(existeIdM){
-        throw new Error(`El maestro con el id ${ id } no existe`);
+}
+
+const existeMaestroById = async (id = '') => {
+    const existeUsuario = await Maestro.findOne({id});
+    if(existeUsuario){
+        throw new Error(`El profesor con el ${ id } no existe`);
     }
 }
 
 module.exports = {
-    esRoleValido,
-    existenteEmail,
-    existenteId
+    existenteEmailAlumno,
+    existenteEmailMaestro,
+    existeAlumnoById,
+    existeMaestroById
 }

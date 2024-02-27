@@ -1,43 +1,41 @@
-const { request } = require('express');
+const { request, response } = require('express');
 const Alumno = require('../models/alumno');
 const Maestro = require('../models/maestro');
 const bcryptjs = require('bcryptjs');
 const { generarJWT } = require('../helpers/generar-jwt');
 
 const login = async (req = request, res = response) => {
-    const { correo, password } = req.body;
+    let { correo, password } = req.body;
 
     try {
-        let user = await Alumno.findOne({ correo });
-
-        if (!user) {
-            user = await Maestro.findOne({ correo });
-
-            if (!user) {
+        let usuario = await Alumno.findOne({ correo });
+        if (!usuario) {
+            usuario = await Maestro.findOne({ correo });
+            if (!usuario) {
                 return res.status(400).json({
                     msg: "Credenciales incorrectas, correo no existe en la DB."
                 });
-            }
-        }
+            };
+        };
 
-        if (!user.estado) {
+        if (usuario.estado === false) {
             return res.status(400).json({
-                msg: "El usuario no existe en la DB"
+                msg: "El correo no existe en la DB"
             });
-        }
+        };
 
-        const validarPassword = bcryptjs.compareSync(password, user.password);
+        const validarPassword = bcryptjs.compareSync(password, usuario.password);
         if (!validarPassword) {
             return res.status(400).json({
                 msg: "La contraseña es incorrecta."
             });
         }
 
-        const token = await generarJWT(user.id);
+        const token = await generarJWT(usuario.id);
 
         res.status(200).json({
             msg: "Bienvenido",
-            user,
+            usuario,
             token
         });
 
